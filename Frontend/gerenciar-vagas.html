@@ -25,6 +25,12 @@
             top: 10px;
             left: 10px;
         }
+        #btn-voltar{
+            margin-left: 10px;
+        }
+        #container-navbar{
+            margin-left: 900px;
+        }
     </style>
     <title>Gerenciar Vagas de Emprego</title>
 </head>
@@ -33,7 +39,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="#">New Jobs</a>
-        <div class="container">
+        <div id="container-navbar" class="container">
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -41,15 +47,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" style="color: #e3f2fd;" href="#">Home</a>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" style="color: #e3f2fd;" href="#">Perfil</a>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addJobModal">Adicionar Vaga</button>
                     </li>
 
                     <li>
-                        <a href="home.html" class="btn btn-outline-light" role="button">Voltar</a>
+                        <a href="home.html" class="btn btn-outline-light" role="button" id="btn-voltar">Voltar</a>
                     </li>
                 </ul>
             </div>
@@ -57,7 +59,7 @@
     </nav>
 
     <div class="container">
-        <h2 class="text-center mt-4 mb-4">Gerenciar Vagas de Emprego <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addJobModal">Adicionar Vaga</button></h2>
+        <h2 class="text-center mt-4 mb-4">Gerenciar Vagas de Emprego</h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="job-card">
