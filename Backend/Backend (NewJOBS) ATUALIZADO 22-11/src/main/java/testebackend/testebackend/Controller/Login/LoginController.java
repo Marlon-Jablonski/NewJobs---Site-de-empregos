@@ -22,7 +22,7 @@ public class LoginController {
 
     @PostMapping()
     @CrossOrigin(origins = "*")
-    public ResponseEntity<String> postLogin(@RequestBody LoginDTO loginDTO) throws SQLException {
+    public ResponseEntity<String> login(@RequestBody LoginDTO loginDTO) throws SQLException {
         UsuarioEntity usuarioExiste = usuarioDAO.getByUsuario(loginDTO.usuario, loginDTO.senha);
 
         if (usuarioExiste != null ){
@@ -33,6 +33,7 @@ public class LoginController {
             loginEntity.token = token;
 
             loginDAO.add(loginEntity);
+            System.out.printf(token);
 
             return ResponseEntity.ok().body(token);
 

@@ -7,6 +7,10 @@ public class ConnectionSingleton {
 
     private static Connection connection;
 
+    private ConnectionSingleton(){
+        
+    }
+
     public static Connection getConnection() throws SQLException {
 
         if (connection == null) {
