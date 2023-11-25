@@ -1,5 +1,4 @@
 package testebackend.testebackend;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,6 +6,10 @@ import java.sql.SQLException;
 public class ConnectionSingleton {
 
     private static Connection connection;
+
+    private ConnectionSingleton(){
+        
+    }
 
     public static Connection getConnection() throws SQLException {
 

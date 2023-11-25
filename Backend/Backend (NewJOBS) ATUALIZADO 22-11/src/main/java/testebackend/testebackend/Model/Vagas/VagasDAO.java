@@ -1,8 +1,6 @@
 package testebackend.testebackend.Model.Vagas;
-
 import org.springframework.stereotype.Component;
 import testebackend.testebackend.ConnectionSingleton;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,9 +21,9 @@ public class VagasDAO {
                     String nomevaga = rs.getString("nomevaga");
                     String descricaodavaga = rs.getString("dsvaga");
                     String nomedaempresa = rs.getString("nomeempresa");
-                    String nomedacidade = rs.getString("nome_cidade");
+                    String nomecidade = rs.getString("nome_cidade");
 
-                    vagasEntityList.add(new VagasEntity(nomevaga, descricaodavaga, nomedaempresa, nomedacidade));
+                    vagasEntityList.add(new VagasEntity(nomevaga, descricaodavaga, nomedaempresa, nomecidade));
                 }
                 return vagasEntityList;
             }

@@ -1,6 +1,6 @@
-package testebackend.testebackend.Model.Vagas;
+package testebackend.testebackend.Controller.Vagas;
 
-public class VagasEntity {
+public class VagasDTO {
 
     public String nomedavaga;
 
@@ -10,11 +10,10 @@ public class VagasEntity {
 
     public String nomecidade;
 
-    public VagasEntity(String nomedavaga, String descricaodavaga, String nomedaempresa, String nomecidade) {
+    public VagasDTO(String nomedavaga, String descricaodavaga, String nomedaempresa,String nomecidade) {
         this.nomedavaga = nomedavaga;
         this.descricaodavaga = descricaodavaga;
         this.nomedaempresa = nomedaempresa;
         this.nomecidade = nomecidade;
     }
-
 }
