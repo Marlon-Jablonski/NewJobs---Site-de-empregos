@@ -13,4 +13,9 @@ public class UsuarioEntity {
         this.senha = senha;
     }
 
+    public UsuarioEntity(int id) { this.id = id;}
+
+    public UsuarioEntity() {
+
+    }
 }

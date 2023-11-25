@@ -9,9 +9,6 @@
         <module name="testebackend" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="testebackend" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

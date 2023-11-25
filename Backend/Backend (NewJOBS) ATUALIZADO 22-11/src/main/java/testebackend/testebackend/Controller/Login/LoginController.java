@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import testebackend.testebackend.Model.Login.LoginDAO;
 import testebackend.testebackend.Model.Login.LoginEntity;
 import testebackend.testebackend.Model.Usuario.UsuarioDAO;
+import testebackend.testebackend.Model.Usuario.UsuarioEntity;
+import java.sql.SQLException;
 import java.util.UUID;
 
 @RestController
@@ -20,33 +22,23 @@ public class LoginController {
 
     @PostMapping()
     @CrossOrigin(origins = "*")
-    public ResponseEntity<String> postLogin(@RequestBody LoginDTO dto) {
+    public ResponseEntity<String> postLogin(@RequestBody LoginDTO loginDTO) throws SQLException {
+        UsuarioEntity usuarioExiste = usuarioDAO.getByUsuario(loginDTO.usuario, loginDTO.senha);
 
-        // Verificar se o usuário existe
-        int id = usuarioDAO.getByUsuario(dto.usuario, dto.senha);
-
-        if (id == -1) {
-
-            // Retornar 401
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-
-        } else {
-
-            // Gravar o token no banco
+        if (usuarioExiste != null ){
             String token = UUID.randomUUID().toString();
-            LoginEntity entity = new LoginEntity();
-            entity.token = token;
-            entity.usuario_id = id;
 
+            LoginEntity loginEntity = new LoginEntity();
+            loginEntity.usuario_id = usuarioExiste;
+            loginEntity.token = token;
 
-            loginDAO.add(entity);
+            loginDAO.add(loginEntity);
 
-
-            // Retornar o token
             return ResponseEntity.ok().body(token);
 
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
-
 
 }
